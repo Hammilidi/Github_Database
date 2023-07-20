@@ -22,23 +22,24 @@ CREATE TABLE Projet (
     type_of_owner NVARCHAR(50)
 );
 
--- Création de la table Contributeur
-CREATE TABLE Contributeur (
-    contributor_id INT PRIMARY KEY,
-    contributor_name NVARCHAR(100)
-);
-
 -- Création de la table Langage
 CREATE TABLE Langage (
     language_id INT PRIMARY KEY,
     language_name NVARCHAR(100)
 );
 
--- Création de la table Licence
+-- Table Licence
 CREATE TABLE Licence (
     license_id INT PRIMARY KEY,
-    license_name NVARCHAR(100),
+    license_name NVARCHAR(100) NULL -- Autoriser les valeurs NULL
 );
+
+-- Table Contributeur
+CREATE TABLE Contributeur (
+    contributor_id INT PRIMARY KEY,
+    contributor_name NVARCHAR(100) NULL -- Autoriser les valeurs NULL
+);
+
 
 -- Création de la table Sujet
 CREATE TABLE Sujet (
