@@ -28,8 +28,10 @@ CREATE TABLE Langage (
 -- Table Licence
 CREATE TABLE Licence (
     license_id INT IDENTITY PRIMARY KEY,
-    license_name NVARCHAR(100) NULL -- Autoriser les valeurs NULL
+    license_name NVARCHAR(500) NULL -- Autoriser les valeurs NULL
 );
+
+ALTER TABLE Licence ALTER COLUMN license_name NVARCHAR(MAX);
 
 -- Table Contributeur
 CREATE TABLE Contributeur (
@@ -60,3 +62,7 @@ CREATE TABLE Projet_Sujet (
     FOREIGN KEY (project_id) REFERENCES Projet(project_id),
     FOREIGN KEY (topic_id) REFERENCES Sujet(topic_id)
 );
+
+
+SELECT * FROM Sujet;
+SELECT * FROM Langage;
