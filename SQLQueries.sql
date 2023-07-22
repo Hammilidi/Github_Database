@@ -1,8 +1,8 @@
-CREATE DATABASE GitHub_Database;
+ï»¿CREATE DATABASE GitHub_Database;
 
 USE GitHub_Database;
 
--- Création de la table Projet
+-- Crï¿½ation de la table Projet
 CREATE TABLE Projet (
     project_id INT NOT NULL IDENTITY PRIMARY KEY,
     nom NVARCHAR(255),
@@ -19,7 +19,7 @@ CREATE TABLE Projet (
 );
 
 
--- Création de la table Langage
+-- Crï¿½ation de la table Langage
 CREATE TABLE Langage (
     language_id INT IDENTITY PRIMARY KEY,
     language_name NVARCHAR(100)
@@ -35,17 +35,22 @@ ALTER TABLE Licence ALTER COLUMN license_name NVARCHAR(MAX);
 
 -- Table Contributeur
 CREATE TABLE Contributeur (
-    contributor_id INT IDENTITY PRIMARY KEY,
-    contributor_name NVARCHAR(100) NULL -- Autoriser les valeurs NULL
+    contributor_id INT IDENTITY(1,1) PRIMARY KEY,
+    contributor_name VARCHAR(255),
+    nbOfContributions INT
 );
 
--- Création de la table Sujet
+ALTER TABLE Contributeur
+ADD nbOfContributions INT;
+
+
+-- CrÃ©ation de la table Sujet
 CREATE TABLE Sujet (
     topic_id INT IDENTITY PRIMARY KEY,
     topic_name NVARCHAR(100)
 );
 
--- Création de la table Participation
+-- CrÃ©ation de la table Participation
 CREATE TABLE Participation (
     project_id INT,
     contributor_id INT,
@@ -54,7 +59,7 @@ CREATE TABLE Participation (
     FOREIGN KEY (contributor_id) REFERENCES Contributeur(contributor_id)
 );
 
--- Création de la table Projet_Sujet
+-- CrÃ©ation de la table Projet_Sujet
 CREATE TABLE Projet_Sujet (
     project_id INT,
     topic_id INT,
@@ -66,3 +71,5 @@ CREATE TABLE Projet_Sujet (
 
 SELECT * FROM Sujet;
 SELECT * FROM Langage;
+SELECT * FROM Licence;
+SELECT * FROM Contributeur;
