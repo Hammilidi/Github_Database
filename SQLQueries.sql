@@ -34,7 +34,7 @@ CREATE TABLE Licence (
 ALTER TABLE Licence ALTER COLUMN license_name NVARCHAR(MAX);
 
 -- Table Contributeur
-CREATE TABLE Contributeur (
+CREATE TABLE Contributor (
     contributor_id INT IDENTITY(1,1) PRIMARY KEY,
     contributor_name VARCHAR(255),
     nbOfContributions INT
@@ -72,4 +72,4 @@ CREATE TABLE Projet_Sujet (
 SELECT * FROM Sujet;
 SELECT * FROM Langage;
 SELECT * FROM Licence;
-SELECT * FROM Contributeur;
+SELECT * FROM Contributor;
